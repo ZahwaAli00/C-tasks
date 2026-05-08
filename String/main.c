@@ -6,18 +6,22 @@ int main()
 {
     char str1[n];
     char str2[n];
+    int index;
     printf("please enter string 1: ");
     gets(str1);
     printf("please enter string 2: ");
     gets(str2);
-    if(strcmp(str1,str2)>0){
-        printf("string 1 is greater than string 2");
+    printf("enter the index where you want to insert the second string:'note start from 0' ");
+    scanf("%d",& index);
+    int len1=strlen(str1);
+    int len2=strlen(str2);
+
+    for(int i=index;i<=(len1+len2);i++){ //بعمل ازاحه للكلمه اللي هدخلها
+       str1[i+len2]=str1[i];
     }
-    else if (strcmp(str1,str2)<0){
-        printf("string 1 is less than string 2");
+    for(int i=0;i<len2;i++){ //بدخل الكلمه
+        str1[i+index]=str2[i];
     }
-    else if(strcmp(str1,str2)==0){
-        printf("string 1 is  equal to string 2");
-    }
+    printf("%s",str1);
     return 0;
 }
