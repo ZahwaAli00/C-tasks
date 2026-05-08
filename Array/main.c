@@ -1,30 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#define a 5
+#define b 3
 int main()
 {
-    do{
-    unsigned int num;
-    unsigned int arr[20];
-    unsigned long int result =1;
-    int limit;
-    printf("please enter integer number\n");
-    scanf("%d",&num);
-    arr[0]=num;
-    limit=num;
+    int arr1[a];
+    int arr2[b];
+    int arr3[a+b];
+    for(int i=0;i<a;i++){
+        printf("please enter array %d 'st element of first array ",i+1);
+        scanf("%d",&arr1[i]);
+    }
+    printf("\n");
+     for(int i=0;i<b;i++){
+        printf("please enter array %d 'st element of second array ",i+1);
+        scanf("%d",&arr2[i]);
+    }
+    for(int i=0;i<a;i++){
+        arr3[i]=arr1[i];
+    }
+    for(int i=a;i<(a+b);i++){
+        arr3[i]=arr2[i-a];
+    }
+     printf("the merge: ");
+    for(int i=0;i<a+b;i++){
+        printf("%d ",arr3[i]);
+    }
 
-    for(int i=1;i<limit;i++){
-        if(num!=0){
-        num--;
-        arr[i]= num;
-        }
-    }
-    for(int i=0;i<limit;i++){
-        if(arr[i]>0){
-            result=result*arr[i];
-        }
-    }
-    printf("the result =%ld\n",result);
-    }while(1);
     return 0;
 }
