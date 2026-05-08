@@ -4,40 +4,27 @@
 int main()
 {
     do{
-        int num;
-        printf("please enter the number\n");
-        scanf("%d",&num);
-        int result=0;
-        int reminder;
-        int count=0;
-        int sum=0;
-        int original_number=num;
+    unsigned int num;
+    unsigned int arr[20];
+    unsigned long int result =1;
+    int limit;
+    printf("please enter integer number\n");
+    scanf("%d",&num);
+    arr[0]=num;
+    limit=num;
 
-        while(num!=0){
-            num=num/10;
-            count++;
+    for(int i=1;i<limit;i++){
+        if(num!=0){
+        num--;
+        arr[i]= num;
         }
-        int oridinalCount=count;
-        num=original_number;
-
-        while(num!=0){
-            int pow=1;
-            while(count!=0){
-               reminder=num%10;
-               pow=pow*reminder;
-               count--;
-            }
-            sum+=pow;
-            count= oridinalCount;
-            num=num/10;
+    }
+    for(int i=0;i<limit;i++){
+        if(arr[i]>0){
+            result=result*arr[i];
         }
-        if(sum==original_number){
-            printf(" the number is Armstrong\n ");
-            }
-        else{
-            printf(" the number isn't Armstrong\n ");
-           }
+    }
+    printf("the result =%ld\n",result);
     }while(1);
-
     return 0;
 }
