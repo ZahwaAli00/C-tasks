@@ -1,23 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define n 5
+
 int main()
 {
-    int arr[n];
-    for(int i=0;i<n;i++){
-        printf("please enter array %d 'st element of array ",i+1);
-        scanf("%d",&arr[i]);
-    }
-   int max=0;
-    int min=0;
-    for(int i=0;i<n;i++){
-      if(arr[i]>max){
-        max=arr[i];
-      }
-      if(arr[i]<min){
-        min=arr[i];
-      }
-    }
-    printf(" the max =%d\n the min= %d ", max ,min);
+    do{
+        int num;
+        printf("please enter the number\n");
+        scanf("%d",&num);
+        int result=0;
+        int reminder;
+        int count=0;
+        int sum=0;
+        int original_number=num;
+
+        while(num!=0){
+            num=num/10;
+            count++;
+        }
+        int oridinalCount=count;
+        num=original_number;
+
+        while(num!=0){
+            int pow=1;
+            while(count!=0){
+               reminder=num%10;
+               pow=pow*reminder;
+               count--;
+            }
+            sum+=pow;
+            count= oridinalCount;
+            num=num/10;
+        }
+        if(sum==original_number){
+            printf(" the number is Armstrong\n ");
+            }
+        else{
+            printf(" the number isn't Armstrong\n ");
+           }
+    }while(1);
+
     return 0;
 }
