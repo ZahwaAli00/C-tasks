@@ -5,23 +5,23 @@
 int main()
 {
     char str1[n];
-    char str2[n];
-    int index;
-    printf("please enter string 1: ");
+    char a;
+    printf("please enter string you want to split: ");
     gets(str1);
-    printf("please enter string 2: ");
-    gets(str2);
-    printf("enter the index where you want to insert the second string:'note start from 0' ");
-    scanf("%d",& index);
-    int len1=strlen(str1);
-    int len2=strlen(str2);
+    printf("please enter the character : ");
+    scanf("%c",&a);
+    int l= strlen(str1);
+    int i=0;
 
-    for(int i=index;i<=(len1+len2);i++){ //بعمل ازاحه للكلمه اللي هدخلها
-       str1[i+len2]=str1[i];
-    }
-    for(int i=0;i<len2;i++){ //بدخل الكلمه
-        str1[i+index]=str2[i];
-    }
-    printf("%s",str1);
+        while(str1[i]!='\0'){
+            if(str1[i]!=a){
+                printf("%c",str1[i]);
+            }
+            else{
+                printf("\n");
+            }
+            i++;
+        }
+
     return 0;
 }
